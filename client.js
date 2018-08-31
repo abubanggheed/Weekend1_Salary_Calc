@@ -6,6 +6,7 @@ let monthlyPayout;
 function onReady() {
     console.log('ready');
     $('#addEmployeeButton').on('click', handleAddEmployee);
+    $('#employeeList').on('click', '.removeEmployeeButton', handleRemoveEmployee);
     updateMonthlyPayout();
 }//end onReady
 
@@ -38,6 +39,18 @@ function updateMonthlyPayout(){
     for(salary of salaries){
         monthlyPayout += parseInt(salary.textContent);
     }
-    monthlyPayout = (monthlyPayout / 12).toFixed(2);
-    $('#totalMonthly').text(monthlyPayout)
+    monthlyPayout = (monthlyPayout / 12);
+    if(monthlyPayout > 20000){
+        $('#totalMonthlyLine').css('color', 'red');
+    }
+    monthlyPayout = monthlyPayout.toFixed(2);
+    $('#totalMonthly').text(monthlyPayout);
 }//end updateMonthlyPayout
+
+function handleRemoveEmployee(){
+    $(this).closest('tr').remove();
+    updateMonthlyPayout();
+    if(monthlyPayout <= 20000){
+        $('#totalMonthlyLine').css('color', 'black');
+    }
+}
