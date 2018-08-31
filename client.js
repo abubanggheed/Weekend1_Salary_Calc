@@ -63,7 +63,7 @@ function handleRemoveEmployee(){//-Remove Button
     //get row
     let row = $(this).closest('tr');
     //find ID number
-    let ID = row.children()[2].innerHTML;
+    let ID = row.children()[2].innerHTML;//I wanted to do this with the .findID class
     //remove employee from array
     removeFromArray(ID);
     //remove row that contains button
@@ -73,7 +73,7 @@ function handleRemoveEmployee(){//-Remove Button
     if(monthlyPayout <= 20000){
         $('#totalMonthlyLine').css('color', 'black');
     }
-}
+}// end handleRemoveEmployee
 
 function removeFromArray(ID){
     for(let i in employees){
@@ -91,4 +91,4 @@ class Employee{
         this.title = Title;
         this.salary = Salary;
     }
-}
+}// end Employee class
