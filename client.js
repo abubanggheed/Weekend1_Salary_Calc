@@ -62,10 +62,8 @@ function updateMonthlyPayout(){
 function handleRemoveEmployee(){//-Remove Button
     //get row
     let row = $(this).closest('tr');
-    //find ID number
-    let ID = row.children()[2].innerHTML;//I wanted to do this with the .findID class
     //remove employee from array
-    removeFromArray(ID);
+    removeFromArray(row.children('.findID').text());
     //remove row that contains button
     row.remove();
     updateMonthlyPayout();
