@@ -76,7 +76,8 @@ function handleRemoveEmployee(){//-Remove Button
 function removeFromArray(ID){
     for(let i in employees){
         if (employees[i].ID === ID){
-            employees.splice(i, 1)
+            employees.splice(i, 1);
+            return;
         }
     }
 }//end removeFromArray
