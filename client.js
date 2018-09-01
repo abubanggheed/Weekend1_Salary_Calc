@@ -52,7 +52,7 @@ function updateMonthlyPayout(){
     //do some uninspiring work
     monthlyPayout = (monthlyPayout / 12);
     if(monthlyPayout > 20000){
-        $('#totalMonthlyLine').css('color', 'red');
+        $('#totalMonthlyLine').css('background-color', 'lightcoral');
     }
     monthlyPayout = monthlyPayout.toFixed(2);
     //put total on dom
@@ -69,7 +69,7 @@ function handleRemoveEmployee(){//-Remove Button
     updateMonthlyPayout();
     //let monthly salary return to being black
     if(monthlyPayout <= 20000){
-        $('#totalMonthlyLine').css('color', 'black');
+        $('#totalMonthlyLine').css('background-color', 'white');
     }
 }// end handleRemoveEmployee
 
