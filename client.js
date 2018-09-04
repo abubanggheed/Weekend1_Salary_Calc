@@ -20,7 +20,7 @@ function handleAddEmployee() {//- Submit Button
     let ID = $('#employeeIDIn').val();
     let title = $('#titleIn').val();
     let salary = $('#salaryIn').val();
-    if(fName && lName && ID && title && salary){
+    if (fName && lName && ID && title && salary) {
         //build a new table entry string
         $('#employeeList').append(`
             <tr>
@@ -35,23 +35,25 @@ function handleAddEmployee() {//- Submit Button
         //clear inputs
         $('#inputDiv').children('input').val('');
         //add new employee to array
-        employees.push( new Employee(fName, lName, ID, title, salary));
+        employees.push(new Employee(fName, lName, ID, title, salary));
         updateMonthlyPayout();
+    } else{
+        alert('All fields are required')
     }
 
 }//end handleAddEmployee
 
-function updateMonthlyPayout(){
+function updateMonthlyPayout() {
     monthlyPayout = 0;
     //obtain array of salaries as strings
     let salaries = $('.findSalary');
     //sum salaries
-    for(salary of salaries){
+    for (salary of salaries) {
         monthlyPayout += parseInt(salary.textContent);
     }
     //do some uninspiring work
     monthlyPayout = (monthlyPayout / 12);
-    if(monthlyPayout > 20000){
+    if (monthlyPayout > 20000) {
         $('#totalMonthlyLine').css('background-color', 'lightcoral');
     }
     monthlyPayout = monthlyPayout.toFixed(2);
@@ -59,7 +61,7 @@ function updateMonthlyPayout(){
     $('#totalMonthly').text(monthlyPayout);
 }//end updateMonthlyPayout
 
-function handleRemoveEmployee(){//-Remove Button
+function handleRemoveEmployee() {//-Remove Button
     //get row
     let row = $(this).closest('tr');
     //remove employee from array
@@ -68,22 +70,23 @@ function handleRemoveEmployee(){//-Remove Button
     row.remove();
     updateMonthlyPayout();
     //let monthly salary return to being black
-    if(monthlyPayout <= 20000){
+    if (monthlyPayout <= 20000) {
         $('#totalMonthlyLine').css('background-color', 'white');
     }
 }// end handleRemoveEmployee
 
-function removeFromArray(ID){
-    for(let i in employees){
-        if (employees[i].ID === ID){
+function removeFromArray(ID) {
+    for (let i in employees) {
+        if (employees[i].ID === ID) {
             employees.splice(i, 1);
             return;
         }
     }
 }//end removeFromArray
 
-class Employee{
-    constructor(fName, lName, ID, Title, Salary){
+
+class Employee {
+    constructor(fName, lName, ID, Title, Salary) {
         this.firstName = fName;
         this.lastName = lName;
         this.ID = ID;

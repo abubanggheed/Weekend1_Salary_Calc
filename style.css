@@ -21,7 +21,8 @@ h2 {
 }
 
 #addEmployeeButton{
-    margin-left: 60em;
+    float: right;
+    margin-right: 5rem;
 }
 
 input {
@@ -41,4 +42,8 @@ table, th, td {
 
 thead {
     background-color: lightgray;
+}
+
+tfoot {
+    background-color: #dddddd;
 }
