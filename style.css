@@ -35,6 +35,8 @@ table{
 table, th, td {
     border: 2px solid darkslategrey;
     border-collapse: collapse;
+    padding: 0.6rem;
+    text-align: center;
 }
 
 thead {
